@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Navbar } from "@/components/Navbar";
+import { Sugerences } from "@/components/Sugerences";
 
 export const metadata: Metadata = {
   title: "Instagram Clone",
@@ -16,7 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="grid grid-cols-[230px,1fr] p-6">
+        <aside className="flex flex-col gap-y-2 p-2 border-r-2">
+          <Navbar />
+        </aside>
+        <main className="overflow-y-auto">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
